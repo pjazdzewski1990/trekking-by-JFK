@@ -1,0 +1,96 @@
+
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+	<title>TrekkingByJfk</title>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <%= stylesheet_link_tag "/css/styleGreen" %>
+  <%= stylesheet_link_tag "/css/style" %>
+  <!--<link rel="stylesheet" type="text/css" href="css/styleGreen.css" title="style" />
+  <link rel="stylesheet" href="css/style.css">-->
+</head>
+
+<body>
+    <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">Treeking<span class="logo_colour">byJFK</span></a></h1>
+          <h2>Proste wykorzystanie Google Maps</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="/users">Home</a></a></li>
+          <li><%= link_to 'Nowy User', new_user_path %></a></li>
+          <li><%= link_to 'Nowe Miejsce', new_marker_path %></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <h3>Lista ciekawych miejsc</h3>
+        <% @markers.each do |marker| %>
+		<div>
+			<div>
+				<%= marker.name %>
+			</div>
+			<div>
+				<%= marker.url %>
+			</div>
+			<div>
+				<%= link_to 'Zobacz', marker %>
+			</div>
+			<div>
+				<%= link_to 'Edytuj', edit_marker_path(marker) %>
+			</div>
+		</div>
+		<% end %>
+		
+        <h3>Wyszukaj</h3>
+        <form method="post" action="#" id="search_form">
+          <p>
+            <input class="search" type="text" name="search_field" value="....." />
+            <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="/css/search.png" alt="Szukaj" title="Szukaj" />
+          </p>
+        </form>
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+		
+    </div>
+  </div>
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')</script>
+
+  <!-- scripts concatenated and minified via build script -->
+  <script defer src="js/plugins.js"></script>
+  <script defer src="js/script.js"></script>
+  <!-- end scripts -->
+</body>
+</html>

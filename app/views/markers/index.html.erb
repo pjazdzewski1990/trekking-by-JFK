@@ -1,0 +1,29 @@
+<h1>Markery</h1>
+
+<table>
+  <tr>
+    <th>Nazwa</th>
+    <th>Pozycja X</th>
+    <th>Pozycja Y</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @markers.each do |marker| %>
+  <tr>
+    <td><%= marker.name %></td>
+    <td><%= marker.posX %></td>
+    <td><%= marker.posY %></td>
+    <td><%= marker.url %></td>
+    <td><%= link_to 'Show', marker %></td>
+    <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
+    <td><%= link_to 'Destroy', marker, confirm: 'Na pewno?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nowy Marker', new_marker_path %>

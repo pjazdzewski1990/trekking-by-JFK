@@ -1,0 +1,33 @@
+<%= form_for(@marker) do |f| %>
+  <% if @marker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@marker.errors.count, "error") %> prohibited this marker from being saved:</h2>
+
+      <ul>
+      <% @marker.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :posX %><br />
+    <%= f.text_field :posX %>
+  </div>
+  <div class="field">
+    <%= f.label :posY %><br />
+    <%= f.text_field :posY %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

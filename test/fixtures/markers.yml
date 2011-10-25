@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  posX: 1.5
+  posY: 1.5
+  url: MyString
+
+two:
+  name: MyString
+  posX: 1.5
+  posY: 1.5
+  url: MyString
