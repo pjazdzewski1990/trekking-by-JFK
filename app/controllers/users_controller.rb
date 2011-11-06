@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 		 # return redirect_to :action => 'loginForm'
 	 # end
 
-	@markers = Marker.all
+	@markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
 	
 	@map = Cartographer::Gmap.new( 'map' )
 	@map.zoom = :bound
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-	@markers = Marker.all
+	@markers =  Marker.order("name").page(params[:page]).per(4)#Marker.all
 	
     @user = User.find(params[:id])
 
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
-	@markers = Marker.all
+	@markers =  Marker.order("name").page(params[:page]).per(4)#Marker.all
 	
     @user = User.new
 
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-	@markers = Marker.all
+	@markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
 	
     @user = User.find(params[:id])
   end
@@ -76,7 +76,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-	@markers = Marker.all
+	@markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
 	
 #@user = User.new(name: params[:user.name], pass: Digest::MD5.hexdigest(params[:user.pass]).to_s)
 #puts "CR: " + params[:user.pass] + " -> " + Digest::MD5.hexdigest(params[:user.pass]).to_s
@@ -95,7 +95,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-	@markers = Marker.all
+	@markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
 	
     @user = User.find(params[:id])
 
@@ -113,7 +113,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-	@markers = Marker.all
+	@markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
 	
     @user = User.find(params[:id])
     @user.destroy

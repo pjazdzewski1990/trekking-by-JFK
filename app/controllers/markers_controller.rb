@@ -2,7 +2,7 @@ class MarkersController < ApplicationController
   # GET /markers
   # GET /markers.json
   def index
-    @markers = Marker.all
+    @markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class MarkersController < ApplicationController
   # GET /markers/1
   # GET /markers/1.json
   def show
-    @markers = Marker.all
+    @markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
 
     @marker = Marker.find(params[:id])
 
@@ -33,7 +33,7 @@ class MarkersController < ApplicationController
   # GET /markers/new
   # GET /markers/new.json
   def new
-    @markers = Marker.all
+    @markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
     @marker = Marker.new
 
     respond_to do |format|
@@ -44,14 +44,14 @@ class MarkersController < ApplicationController
 
   # GET /markers/1/edit
   def edit
-	@markers = Marker.all
+	@markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
     @marker = Marker.find(params[:id])
   end
 
   # POST /markers
   # POST /markers.json
   def create
-	@markers = Marker.all
+	@markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
     @marker = Marker.new(params[:marker])
 
     respond_to do |format|
@@ -68,7 +68,7 @@ class MarkersController < ApplicationController
   # PUT /markers/1
   # PUT /markers/1.json
   def update
-	@markers = Marker.all
+	@markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
     @marker = Marker.find(params[:id])
 
     respond_to do |format|
@@ -85,7 +85,7 @@ class MarkersController < ApplicationController
   # DELETE /markers/1
   # DELETE /markers/1.json
   def destroy
-	@markers = Marker.all
+	@markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
     @marker = Marker.find(params[:id])
     @marker.destroy
 
