@@ -18,8 +18,12 @@
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width,initial-scale=1">
   
+	<!-- na potrzeby JRating -->
+	<link rel="stylesheet" href="http://www.myjqueryplugins.com/plugins/jrating/demo/jquery/jRating.jquery.css" type="text/css" />
+	<link rel="stylesheet" href="http://www.myjqueryplugins.com/plugins/jrating/demo/jquery/jNotify.jquery.css" type="text/css" />
+  
   <%= stylesheet_link_tag "/css/styleGreen" %>
-  <%= stylesheet_link_tag "/css/style" %>
+
   <!--<link rel="stylesheet" type="text/css" href="css/styleGreen.css" title="style" />
   <link rel="stylesheet" href="css/style.css">-->
 </head>
@@ -63,9 +67,9 @@
 			</div>
 		</div>
 		<% end %>
-		test
+
 		<%= paginate @markers %>
-		test
+
         <h3>Wyszukaj</h3>
         <form method="post" action="#" id="search_form">
           <p>
@@ -91,8 +95,30 @@
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')</script>
 
   <!-- scripts concatenated and minified via build script -->
+  <!--
   <script defer src="js/plugins.js"></script>
   <script defer src="js/script.js"></script>
+  -->
   <!-- end scripts -->
+  
+	<!-- na potrzeby JRating -->
+	<script type="text/javascript" src="/jrating_v2.1/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/jrating_v2.1/jquery/jRating.jquery.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.exemple5').jRating({
+			length: 10,
+			decimalLength: 1,
+
+			onSuccess : function(){
+				alert('Sukces');
+			},
+			onError : function(){
+				alert('Error');
+			}
+		});
+	});
+	</script>
+
 </body>
 </html>
