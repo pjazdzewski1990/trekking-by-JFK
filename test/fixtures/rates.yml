@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sum: 1.5
+  votes: 
+  marker: 
+
+two:
+  sum: 1.5
+  votes: 
+  marker: 

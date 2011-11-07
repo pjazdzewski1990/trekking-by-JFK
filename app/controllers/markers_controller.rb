@@ -3,7 +3,8 @@ class MarkersController < ApplicationController
   # GET /markers.json
   def index
     @markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
-
+	@posts = Post.all
+	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @markers }

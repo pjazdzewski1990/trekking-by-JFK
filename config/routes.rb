@@ -1,4 +1,10 @@
 TrekkingByJfk::Application.routes.draw do
+  resources :posts
+
+  resources :comments
+
+  resources :rates
+
   resources :markers
 
   resources :users
@@ -66,4 +72,5 @@ TrekkingByJfk::Application.routes.draw do
   #match "users/restricted" => "users#restricted"
   match "/desc/:id" => "markers#desc"
   root :to => "users#index"
+
 end

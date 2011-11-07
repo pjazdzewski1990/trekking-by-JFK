@@ -5,6 +5,6 @@ pl:
   hello: "Ahoj przygodo"
   views:
     pagination:
-      previous: "Dalej"
-      next: "Wstecz"
+      previous: "Wstecz"
+      next: "Dalej"
       truncate: ""

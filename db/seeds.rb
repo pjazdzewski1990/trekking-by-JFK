@@ -11,12 +11,55 @@ u = User.create([{ name: 'test', pass: 'test' }])
 puts "Liczba userow " + User.count.to_s
 
 Marker.delete_all
-m1 = Marker.create([{name:'marker1', posX:27.173006, posY:78.042086, url:'desc/marker1'}])
-m1 = Marker.create([{name:'marker2', posX:25.173006, posY:80.042086, url:'desc/marker2'}])
-m1 = Marker.create([{name:'marker3', posX:30.173006, posY:75.042086, url:'desc/marker3'}])
-m1 = Marker.create([{name:'marker4', posX:26.173006, posY:83.042086, url:'desc/marker4'}])
-m1 = Marker.create([{name:'marker5', posX:28.173006, posY:76.042086, url:'desc/marker5'}])
-m1 = Marker.create([{name:'marker6', posX:29.173006, posY:81.042086, url:'desc/marker6'}])
-m1 = Marker.create([{name:'marker7', posX:31.173006, posY:77.042086, url:'desc/marker7'}])
-m1 = Marker.create([{name:'marker8', posX:24.173006, posY:75.842086, url:'desc/marker8'}])
+m1 = Marker.new()
+m1.name = "marker1"
+m1.posX = 27.173006
+m1.posY = 78.042086
+m1.url = "desc/marker1"
+m1.save
+
+m2 = Marker.new()
+m2.name = 'marker2'
+m2.posX = 28.173006
+m2.posY = 79.042086
+m2.url = 'desc/marker2'
+m2.save
+
+
+m3 = Marker.new()
+m3.name = 'marker3'
+m3.posX = 26.173006
+m3.posY = 76.042086
+m3.url = 'desc/marker3'
+m3.save
+
+m4 = Marker.new()
+m4.name = 'marker4'
+m4.posX = 28.673006
+m4.posY = 77.042086
+m4.url = 'desc/marker4'
+m4.save
+
+m5 = Marker.new()
+m5.name = "marker5".to_s
+m5.posX = 23.173006
+m5.posY = 79.042086
+m5.url = 'desc/marker5'
+m5.save
 puts "Liczba markerow " + Marker.count.to_s
+
+Rate.delete_all
+r1 = Rate.create([{sum:5.0 , votes:1, marker:m1 }])
+r2 = Rate.create([{sum:5.0 , votes:1, marker:m2 }])
+r3 = Rate.create([{sum:5.0 , votes:1, marker:m3 }])
+r4 = Rate.create([{sum:5.0 , votes:1, marker:m4 }])
+r5 = Rate.create([{sum:5.0 , votes:1, marker:m5 }])
+puts "Liczba ocen " + Rate.count.to_s
+
+Post.delete_all
+p1 = Post.create([{who:"admin", text:"Pierwszy komentarz", }])
+p1 = Post.create([{who:'adam', text:'Drugi komentarz'}])
+p1 = Post.create([{who:'zosia', text:'Trzeci komentarz'}])
+p1 = Post.create([{who:'ania', text:'Kolejny komentarz'}])
+p1 = Post.create([{who:'maciek123', text:'Komentarz'}])
+puts "Liczba komentarzy " + Post.count.to_s

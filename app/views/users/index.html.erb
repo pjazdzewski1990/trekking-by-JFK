@@ -5,4 +5,18 @@
   <div style="width:600px;height:400px;" id="map" > [Map] </div>
 <br />
 
+<h3>Komentarze</h3>
+<% @posts.each do |post| %>
+<div>
+	<div>
+		<%= post.who %>
+	</div>
+	<div>
+		<%= post.text %>
+	</div>
+</div>
+<% end %>
+
+<%= link_to 'Dodaj komentarz', :controller => "posts", :action => "new" %>
+
 <%#= link_to 'New User', new_user_path %>

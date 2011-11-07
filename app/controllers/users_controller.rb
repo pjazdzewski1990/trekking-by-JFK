@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 	 # end
 
 	@markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
+	@posts = Post.all
 	
 	@map = Cartographer::Gmap.new( 'map' )
 	@map.zoom = :bound
