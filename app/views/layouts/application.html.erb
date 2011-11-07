@@ -98,12 +98,14 @@
   <!--
   <script defer src="js/plugins.js"></script>
   <script defer src="js/script.js"></script>
+
   -->
   <!-- end scripts -->
   
 	<!-- na potrzeby JRating -->
 	<script type="text/javascript" src="/jrating_v2.1/jquery/jquery.js"></script>
 	<script type="text/javascript" src="/jrating_v2.1/jquery/jRating.jquery.js"></script>
+	<script type="text/javascript" src="http://www.myjqueryplugins.com/plugins/jrating/demo/jquery/jNotify.jquery.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$('.exemple5').jRating({
@@ -111,11 +113,16 @@
 			decimalLength: 1,
 
 			onSuccess : function(){
-				alert('Sukces');
+				jSuccess('Sukces',{
+					HorizontalPosition:'center',
+					VerticalPosition:'top'
+				});
 			},
+
 			onError : function(){
-				alert('Error');
+				jError('Error : please retry');
 			}
+
 		});
 	});
 	</script>
