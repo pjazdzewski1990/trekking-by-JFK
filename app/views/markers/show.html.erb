@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<%= raw Cartographer::Header.new.to_s %>
+  <%= raw @map.to_html %>
+  <div style="width:600px;height:400px;" id="map" > [Map] </div>
+<br />
+
 <p>
 	<div class="exemple">
 		<b>Ocena miejsca:</b>

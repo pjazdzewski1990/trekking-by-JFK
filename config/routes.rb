@@ -1,4 +1,6 @@
 TrekkingByJfk::Application.routes.draw do
+  resources :searches
+
   resources :posts
 
   resources :comments

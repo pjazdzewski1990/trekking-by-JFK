@@ -3,8 +3,8 @@ class MarkersController < ApplicationController
   # GET /markers.json
   def index
     @markers = Marker.order("name").page(params[:page]).per(4)#Marker.all
-	@posts = Post.all
-	
+	  @posts = Post.all
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @markers }
@@ -18,12 +18,15 @@ class MarkersController < ApplicationController
 
     @marker = Marker.find(params[:id])
 
-	@map = Cartographer::Gmap.new( 'map' )
-	@map.zoom = :bound
-	@map.debug = true
-	normal_icon = Cartographer::Gicon.new
-	@map.icons << normal_icon
-	@map.markers << @marker
+	  @map = Cartographer::Gmap.new( 'map' )
+	  @map.zoom = :bound
+	  @map.debug = true
+	  normal_icon = Cartographer::Gicon.new
+	  @map.icons << normal_icon
+    marker1 = Cartographer::Gmarker.new(:name=> @marker.name, :marker_type => "Building",
+        :position => [@marker.posX, @marker.posY], :icon => normal_icon,
+		:info_window_url => @marker.url)
+	  @map.markers << marker1
 	
     respond_to do |format|
       format.html # show.html.erb
