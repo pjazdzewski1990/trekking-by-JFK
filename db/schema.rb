@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111107181405) do
+ActiveRecord::Schema.define(:version => 20111120182213) do
 
   create_table "markers", :force => true do |t|
     t.string   "name"

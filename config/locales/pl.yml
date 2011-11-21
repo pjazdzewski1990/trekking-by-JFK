@@ -8,3 +8,30 @@ pl:
       previous: "Wstecz"
       next: "Dalej"
       truncate: ""
+  activerecord:
+    attributes:
+      marker:
+        name: "Nazwa"
+        posX: "Pozycja X"
+        posY: "Pozycja Y"
+        url:  "Link URL"
+      user:
+        name: "Login"
+        pass: "Haslo"
+
+    errors:
+      models:
+        marker:
+          attributes:
+            name:
+              blank: " - Podaj nazwe"
+            posX:
+              blank: " - Podaj pozycje X"
+            posY:
+              blank: " - Podaj pozycje Y"
+        user:
+          attributes:
+            name:
+              blank: "Podaj login"
+            pass:
+              blank: "Podaj hasło"

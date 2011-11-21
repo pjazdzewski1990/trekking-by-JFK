@@ -16,7 +16,7 @@ m1.name = "marker1"
 m1.posX = 27.173006
 m1.posY = 78.042086
 m1.url = "desc/marker1"
-m1.save
+m1.save()
 
 m2 = Marker.new()
 m2.name = 'marker2'
@@ -49,11 +49,11 @@ m5.save
 puts "Liczba markerow " + Marker.count.to_s
 
 Rate.destroy_all
-r1 = Rate.create([{sum:5.0 , votes:1, marker:m1 }])
-r2 = Rate.create([{sum:5.0 , votes:1, marker:m2 }])
-r3 = Rate.create([{sum:5.0 , votes:1, marker:m3 }])
-r4 = Rate.create([{sum:5.0 , votes:1, marker:m4 }])
-r5 = Rate.create([{sum:5.0 , votes:1, marker:m5 }])
+r1 = Rate.create([{sum:5.0, votes:1, marker:m1 }])
+r2 = Rate.create([{sum:5.0, votes:1, marker:m2 }])
+r3 = Rate.create([{sum:5.0, votes:1, marker:m3 }])
+r4 = Rate.create([{sum:5.0, votes:1, marker:m4 }])
+r5 = Rate.create([{sum:5.0, votes:1, marker:m5 }])
 puts "Liczba ocen " + Rate.count.to_s
 
 Post.destroy_all
@@ -62,6 +62,6 @@ Post.destroy_all
 #p1 = Post.create([{who:'zosia', text:'Trzeci komentarz'}])
 #p1 = Post.create([{who:'ania', text:'Kolejny komentarz'}])
 #p1 = Post.create([{who:'maciek123', text:'Komentarz'}])
-Post.create :who => 'admin', :text => 'Pierwszy komentarz', :marker_id => 1
-Post.create :who => 'zosia', :text => 'Drugi komentarz', :marker_id => 2
+#Post.create :who => 'admin', :text => 'Pierwszy komentarz', :marker_id => 1
+#Post.create :who => 'zosia', :text => 'Drugi komentarz', :marker_id => 2
 puts "Liczba komentarzy " + Post.count.to_s

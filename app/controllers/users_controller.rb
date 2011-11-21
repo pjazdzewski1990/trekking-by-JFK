@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*
+
 class UsersController < ApplicationController
 
 	require 'digest/md5'
